@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "RoboBetToken",
+    "name": "ROBOBET",
+    "symbol": "ROBOBET",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8000,
+    "initialMarketCapWei": "3500000000000000000000",
+    "remainderTo": "0x12a7aad083cef06fef7c295514b52fc8bc81960d"
+  },
+  "notes": "RoboBetToken (src/RoboBetToken.sol) is a plain OpenZeppelin v5.1.0 ERC20 named ROBOBET with symbol ROBOBET and 18 decimals. Its constructor takes no arguments and mints the whole fixed supply of 1,000,000,000 ROBOBET (1000000000000000000000000000 minor units, the TOTAL_SUPPLY constant) once to msg.sender, which at launch is the IMD ProjectFactory. There is no owner, no mint, no burn, no pause, no blacklist, no transfer fee or tax, and no exempt-address logic: every transfer moves exactly the stated amount, so the factory's transfer to the MerkleDistributor, distributor claims, the single-sided pool seed and swaps through the Uniswap v4 PoolManager all arrive whole. The supply cannot change after deployment and nobody but a holder or an approved spender can move a holder's balance. The launch deploys no application contracts. Pool and economics are the launch's own: the pool pairs with IMD at 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on Ethereum (chain id 1) at the launch policy's 1.25% fee with tick spacing 60; initialPrice is provenance only, the deployer derives the opening price from economics.initialMarketCapWei (3,500 IMD for the whole supply) and totalSupply. 80% of the supply seeds the pool and the requester's remainder goes to 0x12a7aad083cef06fef7c295514b52fc8bc81960d."
+}
